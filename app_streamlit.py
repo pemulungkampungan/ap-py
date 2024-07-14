@@ -3,8 +3,11 @@ import csv
 from itertools import combinations
 
 # Fungsi untuk membaca file
-def readFile(file):
-    rd = csv.reader(file)
+def readFile(uploaded_file):
+    # Decode the uploaded file to read its contents
+    file_content = uploaded_file.getvalue().decode("utf-8")
+    # Convert the decoded content into a list of rows
+    rd = csv.reader(file_content.splitlines())
     return list(rd)
 
 # Fungsi untuk membersihkan data
